@@ -1,0 +1,1 @@
+ <td><img src="images/<?php echo $row['image'] ?>" width="100px"></td>
