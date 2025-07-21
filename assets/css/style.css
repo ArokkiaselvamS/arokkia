@@ -1223,3 +1223,10 @@ form .button-area {
   top: calc(100% - 12rem);
 }
 /* scroll top ends */
+
+@media (max-width:500px) {
+  .hide{
+    display: none;
+  }
+  
+}
