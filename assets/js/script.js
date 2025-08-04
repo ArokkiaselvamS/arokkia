@@ -38,20 +38,24 @@ $(document).ready(function () {
     });
 
     // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+    emailjs.init("0IJXEkB6qRYEpO9sa");
 
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
-    });
+$("#contact-form").submit(function (event) {
+    event.preventDefault();
+
+    const form = document.getElementById("contact-form");
+
+    emailjs.sendForm("service_mnzy1a7", "template_ymcnqat", form)
+        .then(function (response) {
+            console.log("SUCCESS!", response.status, response.text);
+            form.reset();
+            alert("Form Submitted Successfully");
+        }, function (error) {
+            console.log("FAILED...", error);
+            alert("Form Submission Failed! Try Again");
+        });
+});
+
     // <!-- emailjs to mail contact form data -->
 
 });
@@ -59,7 +63,7 @@ $(document).ready(function () {
 document.addEventListener('visibilitychange',
     function () {
         if (document.visibilityState === "visible") {
-            document.title = "Portfolio | Jigar Sable";
+            document.title = "Portfolio | Arokkia Sable";
             $("#favicon").attr("href", "assets/images/favicon.png");
         }
         else {
@@ -82,7 +86,7 @@ var typed = new Typed(".typing-text", {
 async function fetchData(type = "skills") {
     let response
     type === "skills" ?
-        response = await fetch("skills.json")
+        response = await fetch("")
         :
         response = await fetch("./projects/projects.json")
     const data = await response.json();
